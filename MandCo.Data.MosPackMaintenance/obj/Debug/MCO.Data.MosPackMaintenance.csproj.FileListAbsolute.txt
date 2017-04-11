@@ -1,0 +1,10 @@
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\bin\Debug\MandCo.Data.MosPackMaintenance.dll
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\bin\Debug\MandCo.Data.MosPackMaintenance.pdb
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\bin\Debug\MCO.Data.dll
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\bin\Debug\System.Data.SQLite.dll
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\bin\Debug\MCO.Data.pdb
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\bin\Debug\System.Data.SQLite.xml
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\obj\Debug\MCO.Data.MosPackMaintenance.csprojResolveAssemblyReference.cache
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\obj\Debug\MandCo.Data.MosPackMaintenance.dll
+C:\Users\tsmith\Documents\Visual Studio 2013\Projects\MOSPackMaintenance\MandCo.Data.MosPackMaintenance\obj\Debug\MandCo.Data.MosPackMaintenance.pdb
