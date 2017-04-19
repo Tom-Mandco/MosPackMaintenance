@@ -40,7 +40,7 @@
                 string.Empty
             };
 
-            FilterParameters filterParams = app.Parse_FilterParameters_ToModel(searchParameters);
+            Filter_Parameters filterParams = app.Parse_FilterParameters_ToModel(searchParameters);
 
             DataTable returnedPackData = app.Return_CleansedData_ToDataTable(filterParams);
 
@@ -61,7 +61,16 @@
 
         private void dgvPackMaintView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            //MessageBox.Show(string.Format("Entered row. RI: {0} | CI: {1}", e.RowIndex, e.ColumnIndex));
+            Populate_DrillDownInformation(e.RowIndex);
+        }
+
+        private void Populate_DrillDownInformation(int rowIndex)
+        {
+            string packName = this.dgvPackMaintView.Rows[rowIndex].Cells[0].Value.ToString();
+            string packId = this.dgvPackMaintView.Rows[rowIndex].Cells[1].Value.ToString();
+
+            txtPackName.Text = packName;
+            txtPackID.Text = packId;
         }
     }
 }

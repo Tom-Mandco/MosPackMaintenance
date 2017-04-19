@@ -54,6 +54,7 @@
             this.dgvPackDepartments = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gbPackListing = new System.Windows.Forms.GroupBox();
             this.gbFilterCriteria.SuspendLayout();
             this.gbExtendedInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackMaintView)).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackDepartments)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.gbPackListing.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbFilterCriteria
@@ -277,12 +279,15 @@
             this.dgvPackMaintView.AllowUserToAddRows = false;
             this.dgvPackMaintView.AllowUserToDeleteRows = false;
             this.dgvPackMaintView.AllowUserToOrderColumns = true;
+            this.dgvPackMaintView.AllowUserToResizeRows = false;
             this.dgvPackMaintView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackMaintView.Location = new System.Drawing.Point(250, 12);
+            this.dgvPackMaintView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvPackMaintView.Location = new System.Drawing.Point(6, 19);
+            this.dgvPackMaintView.MultiSelect = false;
             this.dgvPackMaintView.Name = "dgvPackMaintView";
             this.dgvPackMaintView.RowHeadersVisible = false;
             this.dgvPackMaintView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPackMaintView.Size = new System.Drawing.Size(846, 317);
+            this.dgvPackMaintView.Size = new System.Drawing.Size(361, 562);
             this.dgvPackMaintView.TabIndex = 2;
             this.dgvPackMaintView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackMaintView_RowEnter);
             // 
@@ -291,15 +296,15 @@
             this.dgvSizesInPack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSizesInPack.Location = new System.Drawing.Point(6, 19);
             this.dgvSizesInPack.Name = "dgvSizesInPack";
-            this.dgvSizesInPack.Size = new System.Drawing.Size(217, 245);
+            this.dgvSizesInPack.Size = new System.Drawing.Size(217, 286);
             this.dgvSizesInPack.TabIndex = 4;
             // 
             // gbSizesInUse
             // 
             this.gbSizesInUse.Controls.Add(this.dgvSizesInPack);
-            this.gbSizesInUse.Location = new System.Drawing.Point(394, 335);
+            this.gbSizesInUse.Location = new System.Drawing.Point(866, 18);
             this.gbSizesInUse.Name = "gbSizesInUse";
-            this.gbSizesInUse.Size = new System.Drawing.Size(230, 270);
+            this.gbSizesInUse.Size = new System.Drawing.Size(230, 311);
             this.gbSizesInUse.TabIndex = 3;
             this.gbSizesInUse.TabStop = false;
             this.gbSizesInUse.Text = "Sizes In Use";
@@ -343,9 +348,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(250, 335);
+            this.groupBox2.Location = new System.Drawing.Point(630, 18);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(138, 270);
+            this.groupBox2.Size = new System.Drawing.Size(230, 311);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pack Codes ";
@@ -355,19 +360,29 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(126, 245);
+            this.dataGridView1.Size = new System.Drawing.Size(218, 286);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // gbPackListing
+            // 
+            this.gbPackListing.Controls.Add(this.dgvPackMaintView);
+            this.gbPackListing.Location = new System.Drawing.Point(250, 18);
+            this.gbPackListing.Name = "gbPackListing";
+            this.gbPackListing.Size = new System.Drawing.Size(374, 581);
+            this.gbPackListing.TabIndex = 7;
+            this.gbPackListing.TabStop = false;
+            this.gbPackListing.Text = "Pack Listing";
             // 
             // PackMaintScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 617);
+            this.Controls.Add(this.gbPackListing);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbDepartmentsUsingPack);
             this.Controls.Add(this.gbProductsInPack);
             this.Controls.Add(this.gbSizesInUse);
-            this.Controls.Add(this.dgvPackMaintView);
             this.Controls.Add(this.gbExtendedInfo);
             this.Controls.Add(this.gbFilterCriteria);
             this.Name = "PackMaintScreen";
@@ -386,6 +401,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackDepartments)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gbPackListing.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -418,5 +434,6 @@
         private System.Windows.Forms.TextBox txtPackID;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox gbPackListing;
     }
 }
