@@ -5,6 +5,6 @@ namespace MCO.Service.MosPackMaintenance.Interfaces
 {
     public interface IPerformLookup
     {
-        IEnumerable<Raw_Pack_Data> Lookup_RawPackData(FilterParameters filterParams);
+        IEnumerable<Raw_Pack_Data> Lookup_RawPackData(Filter_Parameters filterParams);
     }
 }

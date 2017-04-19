@@ -24,7 +24,7 @@
             return dataAdapter.Return_InterprettedData_ToCleansedData(rawPackData);
         }
 
-        public IEnumerable<Raw_Pack_Data> Return_RawPackData_ToModel(FilterParameters filterParams)
+        public IEnumerable<Raw_Pack_Data> Return_RawPackData_ToModel(Filter_Parameters filterParams)
         {
             return performLookup.Lookup_RawPackData(filterParams);
         }

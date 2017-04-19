@@ -15,7 +15,7 @@
             this.oracleRepo = oracleRepo;
         }
 
-        public IEnumerable<Raw_Pack_Data> Lookup_RawPackData(FilterParameters filterParams)
+        public IEnumerable<Raw_Pack_Data> Lookup_RawPackData(Filter_Parameters filterParams)
         {
             IEnumerable<Raw_Pack_Data> result = oracleRepo.GetAllPacks(filterParams);
 

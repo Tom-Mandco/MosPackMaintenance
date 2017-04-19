@@ -296,7 +296,7 @@
             this.dgvSizesInPack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSizesInPack.Location = new System.Drawing.Point(6, 19);
             this.dgvSizesInPack.Name = "dgvSizesInPack";
-            this.dgvSizesInPack.Size = new System.Drawing.Size(217, 286);
+            this.dgvSizesInPack.Size = new System.Drawing.Size(155, 286);
             this.dgvSizesInPack.TabIndex = 4;
             // 
             // gbSizesInUse
@@ -304,7 +304,7 @@
             this.gbSizesInUse.Controls.Add(this.dgvSizesInPack);
             this.gbSizesInUse.Location = new System.Drawing.Point(866, 18);
             this.gbSizesInUse.Name = "gbSizesInUse";
-            this.gbSizesInUse.Size = new System.Drawing.Size(230, 311);
+            this.gbSizesInUse.Size = new System.Drawing.Size(169, 311);
             this.gbSizesInUse.TabIndex = 3;
             this.gbSizesInUse.TabStop = false;
             this.gbSizesInUse.Text = "Sizes In Use";
@@ -330,9 +330,9 @@
             // gbDepartmentsUsingPack
             // 
             this.gbDepartmentsUsingPack.Controls.Add(this.dgvPackDepartments);
-            this.gbDepartmentsUsingPack.Location = new System.Drawing.Point(866, 335);
+            this.gbDepartmentsUsingPack.Location = new System.Drawing.Point(630, 18);
             this.gbDepartmentsUsingPack.Name = "gbDepartmentsUsingPack";
-            this.gbDepartmentsUsingPack.Size = new System.Drawing.Size(230, 270);
+            this.gbDepartmentsUsingPack.Size = new System.Drawing.Size(230, 311);
             this.gbDepartmentsUsingPack.TabIndex = 6;
             this.gbDepartmentsUsingPack.TabStop = false;
             this.gbDepartmentsUsingPack.Text = "Other Departments using this pack";
@@ -342,15 +342,15 @@
             this.dgvPackDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPackDepartments.Location = new System.Drawing.Point(6, 19);
             this.dgvPackDepartments.Name = "dgvPackDepartments";
-            this.dgvPackDepartments.Size = new System.Drawing.Size(217, 245);
+            this.dgvPackDepartments.Size = new System.Drawing.Size(217, 286);
             this.dgvPackDepartments.TabIndex = 4;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(630, 18);
+            this.groupBox2.Location = new System.Drawing.Point(866, 335);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(230, 311);
+            this.groupBox2.Size = new System.Drawing.Size(169, 264);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pack Codes ";
@@ -360,7 +360,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(218, 286);
+            this.dataGridView1.Size = new System.Drawing.Size(155, 245);
             this.dataGridView1.TabIndex = 4;
             // 
             // gbPackListing
@@ -377,7 +377,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 617);
+            this.ClientSize = new System.Drawing.Size(1048, 617);
             this.Controls.Add(this.gbPackListing);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbDepartmentsUsingPack);

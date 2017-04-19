@@ -19,7 +19,7 @@
         }
         #endregion
 
-        public DataTable Return_CleansedData_ToDataTable(FilterParameters filterParams)
+        public DataTable Return_CleansedData_ToDataTable(Filter_Parameters filterParams)
         {
             logger.Info("Retrieval started");
 
@@ -47,9 +47,9 @@
             }
         }
 
-        public FilterParameters Parse_FilterParameters_ToModel(List<string> searchParams)
+        public Filter_Parameters Parse_FilterParameters_ToModel(List<string> searchParams)
         {
-            FilterParameters result = new FilterParameters();
+            Filter_Parameters result = new Filter_Parameters();
 
             try
             {

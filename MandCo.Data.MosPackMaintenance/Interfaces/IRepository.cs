@@ -5,6 +5,6 @@ namespace MCO.Data.MosPackMaintenance.Interfaces
 {
     public interface IRepository
     {
-        IEnumerable<Raw_Pack_Data> GetAllPacks(FilterParameters filterParams);
+        IEnumerable<Raw_Pack_Data> GetAllPacks(Filter_Parameters filterParams);
     }
 }
