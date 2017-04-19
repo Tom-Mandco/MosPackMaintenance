@@ -4,10 +4,11 @@
     using Interfaces;
     using Ninject.Modules;
     using NLog;
-    using System;
     using System.Configuration;
-    using MCO.Data.MosPackMaintenance.Classes;
-    using MCO.Data.MosPackMaintenance.Interfaces;
+    using Data.MosPackMaintenance.Classes;
+    using Data.MosPackMaintenance.Interfaces;
+    using Service.MosPackMaintenance.Classes;
+    using Service.MosPackMaintenance.Interfaces;
 
     class ApplicationModule : NinjectModule
     {
@@ -18,9 +19,9 @@
             {
                 connectionString = ConfigurationManager.AppSettings["OracleConnection"];
             }
-            catch (Exception ex)
+            catch
             {
-
+                
             }
 
             Bind<ILog>().ToMethod(x =>
@@ -31,6 +32,11 @@
             });
 
             Bind(typeof(IApp)).To(typeof(App));
+            Bind(typeof(IDataHandler)).To(typeof(DataHandler));
+            Bind(typeof(IAdaptData)).To(typeof(DataAdapter));
+            Bind(typeof(IPerformLookup)).To(typeof(PerformLookup));
+            Bind(typeof(IDataTableFactory)).To(typeof(DataTableFactory));
+            Bind(typeof(ISerializeObjects)).To(typeof(ObjectSerializer));
             Bind(typeof(IRepository)).To(typeof(OracleRepository)).InSingletonScope().WithConstructorArgument("connectionString", connectionString);
 
 

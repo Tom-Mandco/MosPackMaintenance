@@ -30,6 +30,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -45,13 +54,17 @@
     <Compile Include="Classes\OracleRepository.cs" />
     <Compile Include="Classes\SqlLoader.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Models\Cleansed_Pack_Data.cs" />
+    <Compile Include="Models\FilterParameters.cs" />
+    <Compile Include="Models\Raw_Pack_Data.cs" />
+    <Compile Include="Models\SizeListing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Sql\Prelim SQL File.sql" />
+    <Content Include="Sql\FetchPacks.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="F:\dev\Git\Mackays\Git-MCO\MCO.Data\MCO.Data.csproj">
