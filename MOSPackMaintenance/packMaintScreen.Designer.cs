@@ -293,9 +293,15 @@
             // 
             // dgvSizesInPack
             // 
+            this.dgvSizesInPack.AllowUserToAddRows = false;
+            this.dgvSizesInPack.AllowUserToDeleteRows = false;
+            this.dgvSizesInPack.AllowUserToResizeRows = false;
             this.dgvSizesInPack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSizesInPack.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvSizesInPack.Location = new System.Drawing.Point(6, 19);
             this.dgvSizesInPack.Name = "dgvSizesInPack";
+            this.dgvSizesInPack.RowHeadersVisible = false;
+            this.dgvSizesInPack.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSizesInPack.Size = new System.Drawing.Size(155, 286);
             this.dgvSizesInPack.TabIndex = 4;
             // 
@@ -321,9 +327,15 @@
             // 
             // dgvProductsInPack
             // 
+            this.dgvProductsInPack.AllowUserToAddRows = false;
+            this.dgvProductsInPack.AllowUserToDeleteRows = false;
+            this.dgvProductsInPack.AllowUserToResizeRows = false;
             this.dgvProductsInPack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductsInPack.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProductsInPack.Location = new System.Drawing.Point(6, 19);
             this.dgvProductsInPack.Name = "dgvProductsInPack";
+            this.dgvProductsInPack.RowHeadersVisible = false;
+            this.dgvProductsInPack.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductsInPack.Size = new System.Drawing.Size(217, 245);
             this.dgvProductsInPack.TabIndex = 4;
             // 
@@ -339,9 +351,15 @@
             // 
             // dgvPackDepartments
             // 
+            this.dgvPackDepartments.AllowUserToAddRows = false;
+            this.dgvPackDepartments.AllowUserToDeleteRows = false;
+            this.dgvPackDepartments.AllowUserToResizeRows = false;
             this.dgvPackDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackDepartments.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPackDepartments.Location = new System.Drawing.Point(6, 19);
             this.dgvPackDepartments.Name = "dgvPackDepartments";
+            this.dgvPackDepartments.RowHeadersVisible = false;
+            this.dgvPackDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPackDepartments.Size = new System.Drawing.Size(217, 286);
             this.dgvPackDepartments.TabIndex = 4;
             // 
@@ -357,9 +375,15 @@
             // 
             // dgvPackCodes
             // 
+            this.dgvPackCodes.AllowUserToAddRows = false;
+            this.dgvPackCodes.AllowUserToDeleteRows = false;
+            this.dgvPackCodes.AllowUserToResizeRows = false;
             this.dgvPackCodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackCodes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPackCodes.Location = new System.Drawing.Point(6, 19);
             this.dgvPackCodes.Name = "dgvPackCodes";
+            this.dgvPackCodes.RowHeadersVisible = false;
+            this.dgvPackCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPackCodes.Size = new System.Drawing.Size(155, 245);
             this.dgvPackCodes.TabIndex = 4;
             // 

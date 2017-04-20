@@ -82,7 +82,7 @@
                 case "Department":
                     result = this.dgvPackDepartments;
                     break;
-                case "PackCode":
+                case "PackCodes":
                     result = this.dgvPackCodes;
                     break;
                 case "Product":
