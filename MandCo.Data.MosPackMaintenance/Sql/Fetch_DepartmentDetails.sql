@@ -5,7 +5,7 @@ From war_hir_pack_match packMatch,
      ref_product        product,
      ref_sub_ranges     subRange,
      ref_departments    dept
-Where packMatch.pack_id = '00358'
+Where packMatch.pack_id = @0
 And packMatch.product_number = product.product_number
 And product.dss_department_code = subRange.dss_department_code
 And product.dss_subdepartment_code = subRange.dss_sub_department_code

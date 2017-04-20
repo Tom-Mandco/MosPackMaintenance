@@ -6,5 +6,7 @@ namespace MCO.Data.MosPackMaintenance.Interfaces
     public interface IRepository
     {
         IEnumerable<Raw_Pack_Data> GetAllPacks(Filter_Parameters filterParams);
+
+        T GetFurtherDetail<T>(string packId, string drillDownDetail);
     }
 }

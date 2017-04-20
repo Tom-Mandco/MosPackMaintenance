@@ -55,9 +55,12 @@
     <Compile Include="Classes\SqlLoader.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\Cleansed_Pack_Data.cs" />
+    <Compile Include="Models\Department_Details.cs" />
     <Compile Include="Models\Filter_Parameters.cs" />
+    <Compile Include="Models\PackCode_Details.cs" />
     <Compile Include="Models\Raw_Pack_Data.cs" />
     <Compile Include="Models\Product_Details.cs" />
+    <Compile Include="Models\Size_Details.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -65,14 +68,18 @@
     <Content Include="Sql\Fetch_DepartmentDetails.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sql\Fetch_PackCodes.sql" />
+    <Content Include="Sql\Fetch_PackCodes.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sql\Fetch_Packs.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sql\Fetch_ProductDetails.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sql\Fetch_SizeDetails.sql" />
+    <Content Include="Sql\Fetch_SizeDetails.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="F:\dev\Git\Mackays\Git-MCO\MCO.Data\MCO.Data.csproj">

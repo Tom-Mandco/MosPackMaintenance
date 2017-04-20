@@ -12,7 +12,7 @@
         private readonly IDataHandler dataHandler;
 
         #region Initialization
-        public App(ILog logger,IDataHandler dataHandler)
+        public App(ILog logger, IDataHandler dataHandler)
         {
             this.logger = logger;
             this.dataHandler = dataHandler;
@@ -47,7 +47,7 @@
             }
         }
 
-        public Filter_Parameters Parse_FilterParameters_ToModel(List<string> searchParams)
+        public Filter_Parameters Parse_Filter_Parameters_ToModel(List<string> searchParams)
         {
             Filter_Parameters result = new Filter_Parameters();
 
@@ -71,6 +71,27 @@
                 logger.Error(ex.StackTrace);
             }
 
+            return result;
+        }
+
+        public Dictionary<string, DataTable> Return_DrillDownDetail_ToDictionary(string packId)
+        {
+            string[] activeDrillDowns = {
+                "Department",
+                "PackCodes",
+                "Product",
+                "Size"
+            };
+
+            Dictionary<string, DataTable> result = new Dictionary<string, DataTable>();
+
+            foreach (string drilldown in activeDrillDowns)
+            {
+                DataTable _dt = dataHandler.Return_dtDrillDownObject_ToModel(packId, drilldown);
+                if(_dt.IsInitialized)
+                    result.Add(drilldown, _dt);
+            }
+            
             return result;
         }
     }

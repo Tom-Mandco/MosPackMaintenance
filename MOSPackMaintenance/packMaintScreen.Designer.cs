@@ -53,7 +53,7 @@
             this.gbDepartmentsUsingPack = new System.Windows.Forms.GroupBox();
             this.dgvPackDepartments = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPackCodes = new System.Windows.Forms.DataGridView();
             this.gbPackListing = new System.Windows.Forms.GroupBox();
             this.gbFilterCriteria.SuspendLayout();
             this.gbExtendedInfo.SuspendLayout();
@@ -65,7 +65,7 @@
             this.gbDepartmentsUsingPack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackDepartments)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackCodes)).BeginInit();
             this.gbPackListing.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -347,7 +347,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgvPackCodes);
             this.groupBox2.Location = new System.Drawing.Point(866, 335);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(169, 264);
@@ -355,13 +355,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pack Codes ";
             // 
-            // dataGridView1
+            // dgvPackCodes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(155, 245);
-            this.dataGridView1.TabIndex = 4;
+            this.dgvPackCodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackCodes.Location = new System.Drawing.Point(6, 19);
+            this.dgvPackCodes.Name = "dgvPackCodes";
+            this.dgvPackCodes.Size = new System.Drawing.Size(155, 245);
+            this.dgvPackCodes.TabIndex = 4;
             // 
             // gbPackListing
             // 
@@ -400,7 +400,7 @@
             this.gbDepartmentsUsingPack.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackDepartments)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackCodes)).EndInit();
             this.gbPackListing.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -433,7 +433,7 @@
         private System.Windows.Forms.TextBox txtPackName;
         private System.Windows.Forms.TextBox txtPackID;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox gbPackListing;
+        public System.Windows.Forms.DataGridView dgvPackCodes;
     }
 }

@@ -15,6 +15,13 @@
             this.oracleRepo = oracleRepo;
         }
 
+        public T GetDetail<T>(string packId, string drillDownDetail)
+        {
+            var result = oracleRepo.GetFurtherDetail<T>(packId, drillDownDetail);
+
+            return result;
+        }
+
         public IEnumerable<Raw_Pack_Data> Lookup_RawPackData(Filter_Parameters filterParams)
         {
             IEnumerable<Raw_Pack_Data> result = oracleRepo.GetAllPacks(filterParams);

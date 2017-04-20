@@ -32,9 +32,10 @@
             });
 
             Bind(typeof(IApp)).To(typeof(App));
-            Bind(typeof(IDataHandler)).To(typeof(DataHandler));
             Bind(typeof(IAdaptData)).To(typeof(DataAdapter));
+            Bind(typeof(IDataHandler)).To(typeof(DataHandler));
             Bind(typeof(IPerformLookup)).To(typeof(PerformLookup));
+            Bind(typeof(IDataTableMapper)).To(typeof(DataTableMapper));
             Bind(typeof(IDataTableFactory)).To(typeof(DataTableFactory));
             Bind(typeof(ISerializeObjects)).To(typeof(ObjectSerializer));
             Bind(typeof(IRepository)).To(typeof(OracleRepository)).InSingletonScope().WithConstructorArgument("connectionString", connectionString);

@@ -31,32 +31,18 @@
         {
             PopulateFilterBox(cbDeptFilter);
 
-            searchParameters = new List<string>()
-            {
-                "9",
-                "N",
-                "1",
-                "A",
-                string.Empty
-            };
+            searchParameters = new List<string>() { "9", "N", "1", "A", string.Empty };
 
-            Filter_Parameters filterParams = app.Parse_FilterParameters_ToModel(searchParameters);
+            Filter_Parameters filterParams = app.Parse_Filter_Parameters_ToModel(searchParameters);
 
             DataTable returnedPackData = app.Return_CleansedData_ToDataTable(filterParams);
 
-            BindDataToDGV(this.dgvPackMaintView, returnedPackData);
+            Bind_Data_ToDGV(this.dgvPackMaintView, returnedPackData);
         }
 
         private void PopulateFilterBox(ComboBox cbDeptFilter)
         {
             
-        }
-
-        private void BindDataToDGV(DataGridView packsDGV, DataTable dataTable)
-        {
-            packsDGV.DataSource = dataTable;
-            packsDGV.AutoResizeColumns();
-            packsDGV.Refresh();
         }
 
         private void dgvPackMaintView_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -71,6 +57,50 @@
 
             txtPackName.Text = packName;
             txtPackID.Text = packId;
+
+            Dictionary<string, DataTable> drilledDetails = app.Return_DrillDownDetail_ToDictionary(packId);
+
+            Bind_DDDetails_ToDGV(drilledDetails);
+        }
+
+        private void Bind_DDDetails_ToDGV(Dictionary<string, DataTable> drilledDetails)
+        {
+            foreach (var detail in drilledDetails)
+            {
+                DataGridView _dgv = Decipher_DetailsDGV_ToDGV(detail.Key);
+
+                Bind_Data_ToDGV(_dgv, detail.Value);
+            }
+        }
+
+        private DataGridView Decipher_DetailsDGV_ToDGV(string key)
+        {
+            DataGridView result = new DataGridView();
+
+            switch (key)
+            {
+                case "Department":
+                    result = this.dgvPackDepartments;
+                    break;
+                case "PackCode":
+                    result = this.dgvPackCodes;
+                    break;
+                case "Product":
+                    result = this.dgvProductsInPack;
+                    break;
+                case "Size":
+                    result = this.dgvSizesInPack;
+                    break;
+            }
+
+            return result;
+        }
+
+        private void Bind_Data_ToDGV(DataGridView dataGridView, DataTable dataTable)
+        {
+            dataGridView.DataSource = dataTable;
+            dataGridView.AutoResizeColumns();
+            dataGridView.Refresh();
         }
     }
 }

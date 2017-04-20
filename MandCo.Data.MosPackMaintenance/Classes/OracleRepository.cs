@@ -5,6 +5,7 @@
     using Models;
     using System.Collections.Generic;
     using System.Linq;
+    using System;
 
     public class OracleRepository : OracleBase, IRepository
     {
@@ -28,6 +29,8 @@
             }
         }
 
+
+
         public Product_Details GetProductDetails(string packId)
         {
             using (new SharedConnection(dbConnection))
@@ -36,6 +39,33 @@
                                                                packId
                                                                );
                 return result.Any() ? result.First() : null;
+            }
+        }
+
+        public T GetFurtherDetail<T>(string packId, string drillDownDetail)
+        {
+            string _query = "";
+
+            Dictionary<string, string> queryTable = new Dictionary<string, string>()
+            {
+                { "Department", "Fetch_DepartmentDetails"},
+                { "PackCodes", "Fetch_PackCodes"},
+                { "Product", "Fetch_ProductDetails"},
+                { "Size", "Fetch_SizeDetails"}
+            };
+
+            if(queryTable.Keys.Contains(drillDownDetail))
+            {
+                _query = queryTable[drillDownDetail];
+            }
+
+            using (new SharedConnection(dbConnection))
+            {
+                var result = dbConnection.Query<T>(SqlLoader.GetSql(_query),
+                                                               packId
+                                                               );
+
+                return result.Any() ? result.First() : default(T);
             }
         }
     }

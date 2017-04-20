@@ -4,14 +4,17 @@
     using Interfaces;
     using Data.MosPackMaintenance.Models;
     using System.Data;
+    using System;
 
     public class DataAdapter : IAdaptData
     {
         private readonly IDataTableFactory dtFactory;
+        private readonly IDataTableMapper dtMapper;
 
-        public DataAdapter(IDataTableFactory dtFactory)
+        public DataAdapter(IDataTableFactory dtFactory, IDataTableMapper dtMapper)
         {
             this.dtFactory = dtFactory;
+            this.dtMapper = dtMapper;
         }
 
         public IEnumerable<Cleansed_Pack_Data> Return_InterprettedData_ToCleansedData(IEnumerable<Raw_Pack_Data> rawPackData)
@@ -55,6 +58,33 @@
             }
 
             return result;
+        }
+
+        public DataTable CreateNew_DrillDownDetails_ToDataTable(string detailIdentifier)
+        {
+            DataTable result = dtFactory.CreateNew_DrillDownDetail_ToDataTable(detailIdentifier);
+
+            return result;
+        }
+
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, Department_Details detail)
+        {
+            return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
+        }
+
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, PackCode_Details detail)
+        {
+            return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
+        }
+
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, Product_Details detail)
+        {
+            return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
+        }
+
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, Size_Details detail)
+        {
+            return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
         }
     }
 }
