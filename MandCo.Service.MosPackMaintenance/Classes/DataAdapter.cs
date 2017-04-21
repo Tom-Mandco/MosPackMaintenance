@@ -67,24 +67,29 @@
             return result;
         }
 
-        public DataTable Map_Details_ToDataTable(DataTable dataTable, Department_Details detail)
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Department_Details> detail)
         {
             return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
         }
 
-        public DataTable Map_Details_ToDataTable(DataTable dataTable, PackCode_Details detail)
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<PackCode_Details> detail)
         {
             return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
         }
 
-        public DataTable Map_Details_ToDataTable(DataTable dataTable, Product_Details detail)
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Product_Details> detail)
         {
             return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
         }
 
-        public DataTable Map_Details_ToDataTable(DataTable dataTable, Size_Details detail)
+        public DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Size_Details> detail)
         {
             return dtMapper.Map_DrillDownDetail_ToDataTable(dataTable, detail);
+        }
+
+        public DataTable Map_SizeRanges_ToDataTable(IEnumerable<Size_Ranges> sizeRanges)
+        {
+            
         }
     }
 }

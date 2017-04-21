@@ -42,7 +42,7 @@
             }
         }
 
-        public T GetFurtherDetail<T>(string packId, string drillDownDetail)
+        public IEnumerable<T> GetFurtherDetail<T>(string packId, string drillDownDetail)
         {
             string _query = "";
 
@@ -65,7 +65,27 @@
                                                                packId
                                                                );
 
-                return result.Any() ? result.First() : default(T);
+                return result.Any() ? result : default(IEnumerable<T>);
+            }
+        }
+
+        public IEnumerable<Filter_Data> GetAllSubRanges()
+        {
+            using (new SharedConnection(dbConnection))
+            {
+                var result = dbConnection.Query<Filter_Data>(SqlLoader.GetSql("Fetch_AllActiveSubRanges"));
+
+                return result.Any() ? result : null;
+            }
+        }
+
+        public IEnumerable<Size_Ranges> GetAllSizeRanges()
+        {
+            using (new SharedConnection(dbConnection))
+            {
+                var result = dbConnection.Query<Size_Ranges>(SqlLoader.GetSql("Fetch_AllSizeRanges"));
+
+                return result.Any() ? result : null;
             }
         }
     }

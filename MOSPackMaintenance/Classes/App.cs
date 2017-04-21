@@ -5,6 +5,7 @@
     using System.Data;
     using System.Collections.Generic;
     using System;
+    using System.Configuration;
 
     public class App : IApp
     {
@@ -76,12 +77,7 @@
 
         public Dictionary<string, DataTable> Return_DrillDownDetail_ToDictionary(string packId)
         {
-            string[] activeDrillDowns = {
-                "Department",
-                "PackCodes",
-                "Product",
-                "Size"
-            };
+            string[] activeDrillDowns = ConfigurationManager.AppSettings["activeDrillDownQueries"].Split(',');
 
             Dictionary<string, DataTable> result = new Dictionary<string, DataTable>();
 
@@ -93,6 +89,31 @@
             }
             
             return result;
+        }
+
+        public IEnumerable<Filter_Data> Return_FilterData_ToModel()
+        {
+            return dataHandler.Return_FilterData_ToModel();
+        }
+
+        public DataTable Return_AllSizeRanges_ToDataTable()
+        {
+            try
+            {
+                IEnumerable<Size_Ranges> sizeRanges = dataHandler.Return_AllSizeRanges_ToModel();
+
+                DataTable result = dataHandler.Return_SizeRanges_ToDataTable(sizeRanges);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+                logger.Error(ex.StackTrace);
+                return null;
+            }
+
+            
         }
     }
 }

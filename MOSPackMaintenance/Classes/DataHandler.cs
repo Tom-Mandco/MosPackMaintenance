@@ -38,8 +38,7 @@
         public DataTable Return_dtDrillDownObject_ToModel(string packId, string drillDownIdentifier)
         {
             DataTable result;
-            object _detail;
-
+            
             logger.Trace("Drill Down Identifier: {0}", drillDownIdentifier);
 
             result = dataAdapter.CreateNew_DrillDownDetails_ToDataTable(drillDownIdentifier);
@@ -48,31 +47,57 @@
             {
                 case "Department":
                     logger.Trace("Department case initiated");
-                    _detail = performLookup.GetDetail<Department_Details>(packId, drillDownIdentifier);
-                    result = dataAdapter.Map_Details_ToDataTable(result, (Department_Details)_detail);
+
+                    IEnumerable<Department_Details> _departmentDetail;
+                    _departmentDetail = performLookup.GetDetail<Department_Details>(packId, drillDownIdentifier);
+                    result = dataAdapter.Map_Details_ToDataTable(result, _departmentDetail);
                     break;
+
                 case "PackCodes":
                     logger.Trace("Pack case initiated");
-                    _detail = performLookup.GetDetail<PackCode_Details>(packId, drillDownIdentifier);
-                    result = dataAdapter.Map_Details_ToDataTable(result, (PackCode_Details)_detail);
+
+                    IEnumerable<PackCode_Details> _packCodeDetail;
+                    _packCodeDetail = performLookup.GetDetail<PackCode_Details>(packId, drillDownIdentifier);
+                    result = dataAdapter.Map_Details_ToDataTable(result, _packCodeDetail);
                     break;
+
                 case "Product":
                     logger.Trace("Product case initiated");
-                    _detail = performLookup.GetDetail<Product_Details>(packId, drillDownIdentifier);
-                    result = dataAdapter.Map_Details_ToDataTable(result, (Product_Details)_detail);
+
+                    IEnumerable<Product_Details> _productDetail;
+                    _productDetail = performLookup.GetDetail<Product_Details>(packId, drillDownIdentifier);
+                    result = dataAdapter.Map_Details_ToDataTable(result, _productDetail);
                     break;
+
                 case "Size":
                     logger.Trace("Size Department case initiated");
-                    _detail = performLookup.GetDetail<Size_Details>(packId, drillDownIdentifier);
-                    result = dataAdapter.Map_Details_ToDataTable(result, (Size_Details)_detail);
+
+                    IEnumerable<Size_Details> _sizeDetail;
+                    _sizeDetail = performLookup.GetDetail<Size_Details>(packId, drillDownIdentifier);
+                    result = dataAdapter.Map_Details_ToDataTable(result, _sizeDetail);
                     break;
+
                 default:
                     logger.Warn("Invalid Drill down identifier");
-                    _detail = null;
                     break;
             }
 
-            return result;
+            return result.IsInitialized ? result : null;
+        }
+
+        public IEnumerable<Filter_Data> Return_FilterData_ToModel()
+        {
+            return performLookup.GetAllSubRanges();
+        }
+
+        public IEnumerable<Size_Ranges> Return_AllSizeRanges_ToModel()
+        {
+            return performLookup.GetAllSizeRanges();
+        }
+
+        public DataTable Return_SizeRanges_ToDataTable(IEnumerable<Size_Ranges> sizeRanges)
+        {
+            return dataAdapter.Map_SizeRanges_ToDataTable(sizeRanges);
         }
     }
 }

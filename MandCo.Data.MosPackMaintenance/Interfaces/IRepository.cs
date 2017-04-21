@@ -7,6 +7,6 @@ namespace MCO.Data.MosPackMaintenance.Interfaces
     {
         IEnumerable<Raw_Pack_Data> GetAllPacks(Filter_Parameters filterParams);
 
-        T GetFurtherDetail<T>(string packId, string drillDownDetail);
+        IEnumerable<T> GetFurtherDetail<T>(string packId, string drillDownDetail);
     }
 }

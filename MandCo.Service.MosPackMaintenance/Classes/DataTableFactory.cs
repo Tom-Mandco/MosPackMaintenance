@@ -33,6 +33,18 @@
             return result;
         }
 
+        public DataTable CreateNew_SizeRanges_ToDataTable()
+        {
+            DataTable result = new DataTable();
+
+            result.Columns.Add("Size Range");
+            result.Columns.Add("Size Range Description");
+            result.Columns.Add("Department Code");
+            result.Columns.Add("Sub Department Code");
+
+            return result;
+        }
+
         private string[] Return_DetailHeaders_ToArray(string detailIdentifier)
         {
             List<string> result = new List<string>();

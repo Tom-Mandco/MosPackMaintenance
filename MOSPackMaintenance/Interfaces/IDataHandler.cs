@@ -11,5 +11,8 @@ namespace MCO.Applications.MOSPackMaintenance.Interfaces
         IEnumerable<Cleansed_Pack_Data> Return_CleansedPackData_ToModel(IEnumerable<Raw_Pack_Data> rawPackData);
         DataTable Map_CleansedPackData_InToDataTable(IEnumerable<Cleansed_Pack_Data> cleansedPackData);
         DataTable Return_dtDrillDownObject_ToModel(string packId, string drillDownIdentifier);
+        IEnumerable<Filter_Data> Return_FilterData_ToModel();
+        IEnumerable<Size_Ranges> Return_AllSizeRanges_ToModel();
+        DataTable Return_SizeRanges_ToDataTable(IEnumerable<Size_Ranges> sizeRanges);
     }
 }

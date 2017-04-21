@@ -15,7 +15,17 @@
             this.oracleRepo = oracleRepo;
         }
 
-        public T GetDetail<T>(string packId, string drillDownDetail)
+        public IEnumerable<Size_Ranges> GetAllSizeRanges()
+        {
+            return oracleRepo.GetAllSizeRanges();
+        }
+
+        public IEnumerable<Filter_Data> GetAllSubRanges()
+        {
+            return oracleRepo.GetAllSubRanges();
+        }
+
+        public IEnumerable<T> GetDetail<T>(string packId, string drillDownDetail)
         {
             var result = oracleRepo.GetFurtherDetail<T>(packId, drillDownDetail);
 

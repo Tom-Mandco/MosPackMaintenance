@@ -10,9 +10,9 @@
 
         DataTable Return_CleansedPacks_ToDataTable(IEnumerable<Cleansed_Pack_Data> cleansedPackData);
         DataTable CreateNew_DrillDownDetails_ToDataTable(string detailIdentifier);
-        DataTable Map_Details_ToDataTable(DataTable dataTable, Department_Details detail);
-        DataTable Map_Details_ToDataTable(DataTable dataTable, PackCode_Details detail);
-        DataTable Map_Details_ToDataTable(DataTable dataTable, Product_Details detail);
-        DataTable Map_Details_ToDataTable(DataTable dataTable, Size_Details detail);
+        DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Department_Details> detail);
+        DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<PackCode_Details> detail);
+        DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Product_Details> detail);
+        DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Size_Details> detail);
     }
 }
