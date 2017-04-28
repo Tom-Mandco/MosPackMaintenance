@@ -99,5 +99,20 @@
         {
             return dataAdapter.Map_SizeRanges_ToDataTable(sizeRanges);
         }
+
+        public IEnumerable<Size_Details> Return_SizesBySizeRange_ToModel(string sizeRange)
+        {
+            return performLookup.getSizesBySizeRange(sizeRange);
+        }
+
+        public DataTable Return_SizesBySizeRange_ToDataTable(IEnumerable<Size_Details> sizeDetails)
+        {
+            return dataAdapter.Map_SizesBySizeRange_ToDataTable(sizeDetails);
+        }
+
+        public string Return_NextPackID_ToString()
+        {
+            return performLookup.GetNextPackID();
+        }
     }
 }

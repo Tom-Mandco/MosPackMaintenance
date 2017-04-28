@@ -6,17 +6,20 @@
     using System.Collections.Generic;
     using System;
     using System.Configuration;
+    using System.Windows.Forms;
 
     public class App : IApp
     {
         private readonly ILog logger;
         private readonly IDataHandler dataHandler;
+        private readonly IDGVRowValidator rowValidator;
 
         #region Initialization
-        public App(ILog logger, IDataHandler dataHandler)
+        public App(ILog logger, IDataHandler dataHandler, IDGVRowValidator rowValidator)
         {
             this.logger = logger;
             this.dataHandler = dataHandler;
+            this.rowValidator = rowValidator;
         }
         #endregion
 
@@ -114,6 +117,34 @@
             }
 
             
+        }
+
+        public DataTable Return_SizesBySizeRange_ToDataTable(string sizeRange)
+        {
+            try
+            {
+                IEnumerable<Size_Details> sizeDetails = dataHandler.Return_SizesBySizeRange_ToModel(sizeRange);
+
+                DataTable result = dataHandler.Return_SizesBySizeRange_ToDataTable(sizeDetails);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+                logger.Error(ex.StackTrace);
+                return null;
+            }
+        }
+
+        public bool Validate_SizeRatioRow_DoesNotContainDuplicateValue(string sizeCode, DataGridView dgvSizeRatios)
+        {
+            return rowValidator.Validate_SizeRatioRow_DoesNotContainDuplicateValue(sizeCode, dgvSizeRatios);
+        }
+
+        public string Return_NextPackID_ToString()
+        {
+            return dataHandler.Return_NextPackID_ToString();
         }
     }
 }

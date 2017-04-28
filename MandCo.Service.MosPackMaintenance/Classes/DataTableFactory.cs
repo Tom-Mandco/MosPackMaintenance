@@ -33,6 +33,16 @@
             return result;
         }
 
+        public DataTable CreateNew_SizesBySizeRange_ToDataTable()
+        {
+            DataTable result = new DataTable();
+
+            result.Columns.Add("Size Code");
+            result.Columns.Add("Size Description");
+
+            return result;
+        }
+
         public DataTable CreateNew_SizeRanges_ToDataTable()
         {
             DataTable result = new DataTable();

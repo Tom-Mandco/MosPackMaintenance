@@ -14,5 +14,7 @@
         DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<PackCode_Details> detail);
         DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Product_Details> detail);
         DataTable Map_Details_ToDataTable(DataTable dataTable, IEnumerable<Size_Details> detail);
+        DataTable Map_SizeRanges_ToDataTable(IEnumerable<Size_Ranges> sizeRanges);
+        DataTable Map_SizesBySizeRange_ToDataTable(IEnumerable<Size_Details> sizeDetails);
     }
 }

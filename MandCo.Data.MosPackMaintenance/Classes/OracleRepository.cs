@@ -88,5 +88,24 @@
                 return result.Any() ? result : null;
             }
         }
+
+        public IEnumerable<Size_Details> GetSizes_ForSizeRange(string sizeRange)
+        {
+            using (new SharedConnection(dbConnection))
+            {
+                var result = dbConnection.Query<Size_Details>(SqlLoader.GetSql("Fetch_SizesBySizeRange"), sizeRange);
+
+                return result.Any() ? result : null;
+            }
+        }
+
+        public string GetNextPackID()
+        {
+            using (new SharedConnection(dbConnection))
+            {
+                var result = dbConnection.Query<string>(SqlLoader.GetSql("Fetch_NextPackID"));
+                return result.Any() ? result.First() : null;
+            }
+        }
     }
 }

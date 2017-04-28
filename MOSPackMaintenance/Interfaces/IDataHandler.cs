@@ -14,5 +14,8 @@ namespace MCO.Applications.MOSPackMaintenance.Interfaces
         IEnumerable<Filter_Data> Return_FilterData_ToModel();
         IEnumerable<Size_Ranges> Return_AllSizeRanges_ToModel();
         DataTable Return_SizeRanges_ToDataTable(IEnumerable<Size_Ranges> sizeRanges);
+        IEnumerable<Size_Details> Return_SizesBySizeRange_ToModel(string sizeRange);
+        DataTable Return_SizesBySizeRange_ToDataTable(IEnumerable<Size_Details> sizeDetails);
+        string Return_NextPackID_ToString();
     }
 }

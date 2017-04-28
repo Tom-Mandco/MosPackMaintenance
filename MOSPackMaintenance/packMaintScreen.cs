@@ -23,13 +23,12 @@
 
         private void PackMaintScreen_Load(object sender, System.EventArgs e)
         {
+            PopulateFilterBoxes();
             run();
         }
 
         private void run()
         {
-            PopulateFilterBox(cbDeptFilter);
-
             searchParameters = new List<string>() { "9", "N", "1", "A", string.Empty };
 
             Filter_Parameters filterParams = app.Parse_Filter_Parameters_ToModel(searchParameters);
@@ -39,9 +38,9 @@
             Bind_Data_ToDGV(this.dgvPackMaintView, returnedPackData);
         }
 
-        private void PopulateFilterBox(ComboBox cbDeptFilter)
+        private void PopulateFilterBoxes()
         {
-            
+            IEnumerable<Filter_Data> filterData = app.Return_FilterData_ToModel();
         }
 
         private void dgvPackMaintView_RowEnter(object sender, DataGridViewCellEventArgs e)

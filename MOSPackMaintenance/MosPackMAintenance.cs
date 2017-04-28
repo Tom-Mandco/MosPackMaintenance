@@ -15,7 +15,7 @@
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(CompositionRoot.Resolve<PackMaintScreen>());
+            Application.Run(CompositionRoot.Resolve<PackCreationScreen>());
         }
     }
 }

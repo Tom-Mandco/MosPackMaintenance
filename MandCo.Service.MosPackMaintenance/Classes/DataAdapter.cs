@@ -89,7 +89,16 @@
 
         public DataTable Map_SizeRanges_ToDataTable(IEnumerable<Size_Ranges> sizeRanges)
         {
-            
+            DataTable result = dtFactory.CreateNew_SizeRanges_ToDataTable();
+
+            return dtMapper.Map_SizeRanges_ToDataTable(result, sizeRanges);
+        }
+
+        public DataTable Map_SizesBySizeRange_ToDataTable(IEnumerable<Size_Details> sizeDetails)
+        {
+            DataTable result = dtFactory.CreateNew_SizesBySizeRange_ToDataTable();
+
+            return dtMapper.Map_SizesBySizeRange_ToDataTable(result, sizeDetails);
         }
     }
 }

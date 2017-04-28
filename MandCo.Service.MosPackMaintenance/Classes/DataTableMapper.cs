@@ -64,5 +64,16 @@
 
             return dataTable;
         }
+
+        public DataTable Map_SizesBySizeRange_ToDataTable(DataTable dataTable, IEnumerable<Size_Details> sizeDetails)
+        {
+            foreach (var detail in sizeDetails)
+            {
+                dataTable.Rows.Add(detail.Size_Code,
+                                   detail.Size_Description);
+            }
+
+            return dataTable;
+        }
     }
 }

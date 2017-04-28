@@ -56,16 +56,22 @@
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\Cleansed_Pack_Data.cs" />
     <Compile Include="Models\Department_Details.cs" />
+    <Compile Include="Models\Filter_Data.cs" />
     <Compile Include="Models\Filter_Parameters.cs" />
     <Compile Include="Models\PackCode_Details.cs" />
     <Compile Include="Models\Raw_Pack_Data.cs" />
     <Compile Include="Models\Product_Details.cs" />
     <Compile Include="Models\Size_Details.cs" />
+    <Compile Include="Models\Size_Ranges.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Sql\Fetch_AllActiveSubRanges.sql" />
     <Content Include="Sql\Fetch_DepartmentDetails.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\Fetch_NextPackID.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sql\Fetch_PackCodes.sql">
@@ -78,6 +84,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sql\Fetch_SizeDetails.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\Fetch_AllSizeRanges.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\Fetch_SizesBySizeRange.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

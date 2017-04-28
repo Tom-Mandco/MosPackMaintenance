@@ -20,6 +20,11 @@
             return oracleRepo.GetAllSizeRanges();
         }
 
+        public IEnumerable<Size_Details> getSizesBySizeRange(string sizeRange)
+        {
+            return oracleRepo.GetSizes_ForSizeRange(sizeRange);
+        }
+
         public IEnumerable<Filter_Data> GetAllSubRanges()
         {
             return oracleRepo.GetAllSubRanges();
@@ -37,6 +42,11 @@
             IEnumerable<Raw_Pack_Data> result = oracleRepo.GetAllPacks(filterParams);
 
             return result;
+        }
+
+        public string GetNextPackID()
+        {
+            return oracleRepo.GetNextPackID();
         }
     }
 }

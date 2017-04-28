@@ -54,13 +54,11 @@
     <Compile Include="Classes\DataAdapter.cs" />
     <Compile Include="Classes\DataTableFactory.cs" />
     <Compile Include="Classes\DataTableMapper.cs" />
-    <Compile Include="Classes\ObjectSerializer.cs" />
     <Compile Include="Classes\PerformLookup.cs" />
     <Compile Include="Interfaces\IAdaptData.cs" />
     <Compile Include="Interfaces\IDataTableFactory.cs" />
     <Compile Include="Interfaces\IDataTableMapper.cs" />
     <Compile Include="Interfaces\IPerformLookup.cs" />
-    <Compile Include="Interfaces\ISerializeObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

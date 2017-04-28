@@ -67,20 +67,37 @@
     <Compile Include="Classes\App.cs" />
     <Compile Include="Classes\DataHandler.cs" />
     <Compile Include="Classes\Log.cs" />
+    <Compile Include="Classes\ValidationHandler.cs" />
+    <Compile Include="Classes\ObjectSerializer.cs" />
+    <Compile Include="Classes\SubmissionValidator.cs" />
     <Compile Include="CompositionRoot.cs" />
     <Compile Include="Interfaces\IDataHandler.cs" />
-    <Compile Include="packMaintScreen.cs">
+    <Compile Include="Interfaces\IValidationHandler.cs" />
+    <Compile Include="Interfaces\ISerializeObjects.cs" />
+    <Compile Include="Interfaces\ISubmissionValidator.cs" />
+    <Compile Include="Models\New_Pack.cs" />
+    <Compile Include="Models\Sizes_In_Pack.cs" />
+    <Compile Include="PackCreationScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="packMaintScreen.Designer.cs">
-      <DependentUpon>packMaintScreen.cs</DependentUpon>
+    <Compile Include="PackCreationScreen.Designer.cs">
+      <DependentUpon>PackCreationScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackMaintScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackMaintScreen.Designer.cs">
+      <DependentUpon>PackMaintScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IApp.cs" />
     <Compile Include="Interfaces\ILog.cs" />
     <Compile Include="MosPackMaintenance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="packMaintScreen.resx">
-      <DependentUpon>packMaintScreen.cs</DependentUpon>
+    <EmbeddedResource Include="PackCreationScreen.resx">
+      <DependentUpon>PackCreationScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackMaintScreen.resx">
+      <DependentUpon>PackMaintScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
