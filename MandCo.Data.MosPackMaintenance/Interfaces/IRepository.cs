@@ -11,7 +11,7 @@ namespace MCO.Data.MosPackMaintenance.Interfaces
         IEnumerable<Filter_Data> GetAllSubRanges();
         IEnumerable<Size_Ranges> GetAllSizeRanges();
         IEnumerable<Size_Details> GetSizes_ForSizeRange(string sizeRange);
-
+        void Insert_NewPackDetail(New_Pack newPack);
         string GetNextPackID();
 
         void Insert_NewPackHeader(New_Pack newPack);

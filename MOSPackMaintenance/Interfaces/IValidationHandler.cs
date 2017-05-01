@@ -7,5 +7,6 @@ namespace MCO.Applications.MOSPackMaintenance.Interfaces
     {
         bool Validate_SizeRatioRow_DoesNotContainDuplicateValue(string sizeCode, DataGridView dgvSizeRatios);
         bool Validate_NewPack_IsUnique(New_Pack newPack);
+        string Validate_NewPackSubmission_AllDataPresent(string packName, DataGridView dgvSizeRatios);
     }
 }

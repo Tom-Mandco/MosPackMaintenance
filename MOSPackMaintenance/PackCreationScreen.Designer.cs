@@ -45,11 +45,14 @@
             this.tbPackName = new System.Windows.Forms.TextBox();
             this.gbSizeRatios = new System.Windows.Forms.GroupBox();
             this.dgvSizeRatios = new System.Windows.Forms.DataGridView();
-            this.gbControls = new System.Windows.Forms.GroupBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.colSizeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSizeDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRatio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbControls = new System.Windows.Forms.GroupBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnClearSizeRatioTable = new System.Windows.Forms.Button();
+            this.btnMoveSizeRatioUp = new System.Windows.Forms.Button();
+            this.btnMoveSizeRatioDown = new System.Windows.Forms.Button();
             this.gbSizeRanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeRanges)).BeginInit();
             this.gbSizePicker.SuspendLayout();
@@ -205,6 +208,9 @@
             // 
             // gbSizeRatios
             // 
+            this.gbSizeRatios.Controls.Add(this.btnMoveSizeRatioDown);
+            this.gbSizeRatios.Controls.Add(this.btnMoveSizeRatioUp);
+            this.gbSizeRatios.Controls.Add(this.btnClearSizeRatioTable);
             this.gbSizeRatios.Controls.Add(this.dgvSizeRatios);
             this.gbSizeRatios.Location = new System.Drawing.Point(945, 12);
             this.gbSizeRatios.Name = "gbSizeRatios";
@@ -225,15 +231,36 @@
             this.colSizeDesc,
             this.colRatio});
             this.dgvSizeRatios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvSizeRatios.Location = new System.Drawing.Point(6, 19);
+            this.dgvSizeRatios.Location = new System.Drawing.Point(6, 46);
             this.dgvSizeRatios.MultiSelect = false;
             this.dgvSizeRatios.Name = "dgvSizeRatios";
             this.dgvSizeRatios.RowHeadersVisible = false;
             this.dgvSizeRatios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvSizeRatios.Size = new System.Drawing.Size(309, 423);
+            this.dgvSizeRatios.Size = new System.Drawing.Size(309, 396);
             this.dgvSizeRatios.TabIndex = 4;
             this.dgvSizeRatios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSizeRatios_CellContentClick);
             this.dgvSizeRatios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSizeRatios_CellEndEdit);
+            // 
+            // colSizeCode
+            // 
+            this.colSizeCode.HeaderText = "Size Code";
+            this.colSizeCode.Name = "colSizeCode";
+            this.colSizeCode.ReadOnly = true;
+            // 
+            // colSizeDesc
+            // 
+            this.colSizeDesc.HeaderText = "Size Description";
+            this.colSizeDesc.Name = "colSizeDesc";
+            this.colSizeDesc.ReadOnly = true;
+            // 
+            // colRatio
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.colRatio.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colRatio.HeaderText = "Ratio Qty";
+            this.colRatio.Name = "colRatio";
             // 
             // gbControls
             // 
@@ -261,32 +288,39 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // colSizeCode
+            // btnClearSizeRatioTable
             // 
-            this.colSizeCode.HeaderText = "Size Code";
-            this.colSizeCode.Name = "colSizeCode";
-            this.colSizeCode.ReadOnly = true;
+            this.btnClearSizeRatioTable.Location = new System.Drawing.Point(6, 19);
+            this.btnClearSizeRatioTable.Name = "btnClearSizeRatioTable";
+            this.btnClearSizeRatioTable.Size = new System.Drawing.Size(148, 23);
+            this.btnClearSizeRatioTable.TabIndex = 5;
+            this.btnClearSizeRatioTable.Text = "Clear All";
+            this.btnClearSizeRatioTable.UseVisualStyleBackColor = true;
+            this.btnClearSizeRatioTable.Click += new System.EventHandler(this.button1_Click);
             // 
-            // colSizeDesc
+            // btnMoveSizeRatioUp
             // 
-            this.colSizeDesc.HeaderText = "Size Description";
-            this.colSizeDesc.Name = "colSizeDesc";
-            this.colSizeDesc.ReadOnly = true;
+            this.btnMoveSizeRatioUp.Location = new System.Drawing.Point(160, 19);
+            this.btnMoveSizeRatioUp.Name = "btnMoveSizeRatioUp";
+            this.btnMoveSizeRatioUp.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveSizeRatioUp.TabIndex = 6;
+            this.btnMoveSizeRatioUp.Text = "Move Up";
+            this.btnMoveSizeRatioUp.UseVisualStyleBackColor = true;
             // 
-            // colRatio
+            // btnMoveSizeRatioDown
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.colRatio.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colRatio.HeaderText = "Ratio Qty";
-            this.colRatio.Name = "colRatio";
+            this.btnMoveSizeRatioDown.Location = new System.Drawing.Point(241, 19);
+            this.btnMoveSizeRatioDown.Name = "btnMoveSizeRatioDown";
+            this.btnMoveSizeRatioDown.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveSizeRatioDown.TabIndex = 7;
+            this.btnMoveSizeRatioDown.Text = "Move Down";
+            this.btnMoveSizeRatioDown.UseVisualStyleBackColor = true;
             // 
             // PackCreationScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 466);
+            this.ClientSize = new System.Drawing.Size(1273, 466);
             this.Controls.Add(this.gbControls);
             this.Controls.Add(this.gbSizeRatios);
             this.Controls.Add(this.gbSizePicker);
@@ -330,5 +364,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRatio;
+        private System.Windows.Forms.Button btnClearSizeRatioTable;
+        private System.Windows.Forms.Button btnMoveSizeRatioDown;
+        private System.Windows.Forms.Button btnMoveSizeRatioUp;
     }
 }

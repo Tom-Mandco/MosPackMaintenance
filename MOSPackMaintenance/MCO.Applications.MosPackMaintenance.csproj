@@ -69,12 +69,10 @@
     <Compile Include="Classes\Log.cs" />
     <Compile Include="Classes\ValidationHandler.cs" />
     <Compile Include="Classes\ObjectSerializer.cs" />
-    <Compile Include="Classes\SubmissionValidator.cs" />
     <Compile Include="CompositionRoot.cs" />
     <Compile Include="Interfaces\IDataHandler.cs" />
     <Compile Include="Interfaces\IValidationHandler.cs" />
     <Compile Include="Interfaces\ISerializeObjects.cs" />
-    <Compile Include="Interfaces\ISubmissionValidator.cs" />
     <Compile Include="PackCreationScreen.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -40,7 +40,6 @@
             Bind(typeof(IDataTableFactory)).To(typeof(DataTableFactory));
             Bind(typeof(ISerializeObjects)).To(typeof(ObjectSerializer));
             Bind(typeof(IValidationHandler)).To(typeof(ValidationHandler));
-            Bind(typeof(ISubmissionValidator)).To(typeof(SubmissionValidator));
             Bind(typeof(IRepository)).To(typeof(OracleRepository)).InSingletonScope().WithConstructorArgument("connectionString", connectionString);
         }
     }

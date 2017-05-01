@@ -94,7 +94,7 @@
     <Content Include="Sql\Fetch_SizesBySizeRange.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sql\Insert_NewPack.sql">
+    <Content Include="Sql\Insert_NewPackDetail.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sql\Insert_NewPackHeader.sql">

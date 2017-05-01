@@ -121,18 +121,28 @@
             }
         }
 
-        public void testingDynamicQuery(New_Pack newPack)
+        public void Insert_NewPackDetail(New_Pack newPack)
         {
             using (new SharedConnection(dbConnection))
             {
-                string _sqlQuery = SqlLoader.GetSql("");
+                string _sqlInsertQuery = "INSERT ALL ";
+
+                string _sqlInsertHeaders = "INTO hir_Pack_makeup (pack_id, size_code, units_qty, display_sequence)";
 
                 foreach (New_Pack_Sizes packSize in newPack.SizeList)
                 {
-                    _sqlQuery += string.Format("AND (Size_Code = {0} AND Units_Qty = {1})", packSize.Size_Code, packSize.Qty);
+                    _sqlInsertQuery += string.Format("{0} VALUES ('{1}',{2},{3},{4}) ",
+                                               _sqlInsertHeaders,
+                                               newPack.PackId, 
+                                               packSize.Size_Code, 
+                                               packSize.Qty,
+                                               packSize.Display_Sequence
+                                               );
                 }
 
-                var result = dbConnection.Query<bool>(_sqlQuery);
+                _sqlInsertQuery += "SELECT * FROM dual";
+
+                dbConnection.Execute(_sqlInsertQuery);
             }
         }
     }

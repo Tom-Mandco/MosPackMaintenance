@@ -16,7 +16,7 @@
 
         public void Insert_NewPackDetail_ToDb(New_Pack newPack)
         {
-            
+            oracleRepo.Insert_NewPackDetail(newPack);
         }
 
         public void Insert_NewPackHeader_ToDB(New_Pack newPack)

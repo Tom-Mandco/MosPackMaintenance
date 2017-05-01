@@ -92,16 +92,26 @@
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            New_Pack newPack = app.Return_NewPack_ToModel(this.tbPackId.Text,
-                                                          this.tbPackName.Text,
-                                                          this.dgvSizeRatios);
+            string _sumbissionErrors = app.Validate_NewPack_AllDataValid(tbPackName.Text,
+                                                                        dgvSizeRatios);
 
-            bool _isValidPack = app.Validate_NewPack_IsUnique(newPack);
-
-            if (_isValidPack)
+            if (_sumbissionErrors == "")
             {
-                app.Insert_NewPack_ToDB(newPack);
-                Run();
+                New_Pack newPack = app.Return_NewPack_ToModel(this.tbPackId.Text,
+                                                              this.tbPackName.Text,
+                                                              this.dgvSizeRatios);
+
+                bool _isUniquePack = app.Validate_NewPack_IsUnique(newPack);
+
+                if (_isUniquePack)
+                {
+                    app.Insert_NewPack_ToDB(newPack);
+                    Run();
+                }
+            }
+            else
+            {
+                MessageBox.Show(_sumbissionErrors, "Please fix the following errors before continuing", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -123,11 +133,8 @@
             this.tbPackName.Text = string.Empty;
             this.tbQtyInPack.Text = "0";
 
-            foreach (var _row in dgvSizeRatios.Rows)
-            {
-                this.dgvSizeRanges.Rows.RemoveAt(0);
-            }
-            
+            this.dgvSizeRatios.DataSource = null;
+            this.dgvSizeRatios.Rows.Clear();
         }
 
         private void PopulateSizesBySizeRangeTable(int rowIndex)
@@ -178,6 +185,12 @@
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to clear all sizes from this pack ?", "Clear all data?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+                RefreshForm();
+        }
     }
 }
 

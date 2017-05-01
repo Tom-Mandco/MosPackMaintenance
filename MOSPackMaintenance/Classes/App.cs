@@ -163,5 +163,10 @@
         {
             dataHandler.Insert_NewPack_ToDB(newPack);
         }
+
+        public string Validate_NewPack_AllDataValid(string packName, DataGridView dgvSizeRatios)
+        {
+            return validationHandler.Validate_NewPackSubmission_AllDataPresent(packName, dgvSizeRatios);
+        }
     }
 }

@@ -19,8 +19,9 @@
 
         bool Validate_SizeRatioRow_DoesNotContainDuplicateValue(string sizeCode, DataGridView dgvSizeRatios);
         bool Validate_NewPack_IsUnique(New_Pack newPack);
-
+        string Validate_NewPack_AllDataValid(string text, DataGridView dgvSizeRatios);
         string Return_NextPackID_ToString();
         void Insert_NewPack_ToDB(New_Pack newPack);
+        
     }
 }
