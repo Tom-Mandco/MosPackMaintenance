@@ -75,8 +75,6 @@
     <Compile Include="Interfaces\IValidationHandler.cs" />
     <Compile Include="Interfaces\ISerializeObjects.cs" />
     <Compile Include="Interfaces\ISubmissionValidator.cs" />
-    <Compile Include="Models\New_Pack.cs" />
-    <Compile Include="Models\Sizes_In_Pack.cs" />
     <Compile Include="PackCreationScreen.cs">
       <SubType>Form</SubType>
     </Compile>

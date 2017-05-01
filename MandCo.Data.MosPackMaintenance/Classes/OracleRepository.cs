@@ -107,5 +107,33 @@
                 return result.Any() ? result.First() : null;
             }
         }
+
+        public void Insert_NewPackHeader(New_Pack newPack)
+        {
+            using (new SharedConnection(dbConnection))
+            {
+                dbConnection.Execute(SqlLoader.GetSql("Insert_NewPackHeader"),
+                                                       newPack.PackId,
+                                                       newPack.PackName,
+                                                       newPack.Return_TotalSizes_ToInt(),
+                                                       newPack.Return_TotalUnits_ToInt()
+                                                       );
+            }
+        }
+
+        public void testingDynamicQuery(New_Pack newPack)
+        {
+            using (new SharedConnection(dbConnection))
+            {
+                string _sqlQuery = SqlLoader.GetSql("");
+
+                foreach (New_Pack_Sizes packSize in newPack.SizeList)
+                {
+                    _sqlQuery += string.Format("AND (Size_Code = {0} AND Units_Qty = {1})", packSize.Size_Code, packSize.Qty);
+                }
+
+                var result = dbConnection.Query<bool>(_sqlQuery);
+            }
+        }
     }
 }

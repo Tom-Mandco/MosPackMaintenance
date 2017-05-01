@@ -4,7 +4,7 @@
     using System.Data;
     using Interfaces;
     using System;
-    using Models;
+    using Data.MosPackMaintenance.Models;
 
     public partial class PackCreationScreen : Form
     {
@@ -22,7 +22,6 @@
         private void PackCreationScreen_Load(object sender, System.EventArgs e)
         {
             Run();
-
         }
 
         private void dgvSizeRanges_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -74,78 +73,6 @@
             }
         }
 
-        private void PopulateSizesBySizeRangeTable(int rowIndex)
-        {
-            string sizeRangeID = this.dgvSizeRanges.Rows[rowIndex].Cells[0].Value.ToString();
-
-            DataTable sizesBySizeRangeDT = app.Return_SizesBySizeRange_ToDataTable(sizeRangeID);
-
-            Bind_Data_ToDGV(this.dgvSizesBySizeRange, sizesBySizeRangeDT);
-        }
-
-        private void Run()
-        {
-            this.tbPackId.Text = app.Return_NextPackID_ToString();
-
-            DataTable sizeRangesDT = app.Return_AllSizeRanges_ToDataTable();
-
-            Bind_Data_ToDGV(this.dgvSizeRanges, sizeRangesDT);
-
-            AddButtonToDataGridView(this.dgvSizesBySizeRange, "Add");
-            AddButtonToDataGridView(this.dgvSizeRatios, "Delete");
-        }
-
-        private void Bind_Data_ToDGV(DataGridView dataGridView, DataTable dataTable)
-        {
-            dataGridView.DataSource = dataTable;
-            dataGridView.AutoResizeColumns();
-            dataGridView.Refresh();
-        }
-
-        public void AddButtonToDataGridView(DataGridView dgv, string btnText)
-        {
-            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            btnColumn.Name = "addSize";
-            btnColumn.HeaderText = btnText + " Size";
-            btnColumn.Width = 100;
-            btnColumn.ReadOnly = false;
-            btnColumn.FillWeight = 10;
-            btnColumn.Text = btnText;
-            btnColumn.UseColumnTextForButtonValue = true;
-
-            dgv.Columns.Add(btnColumn);
-
-            dgv.AutoResizeColumns();
-            dgv.Refresh();
-        }
-
-
-
-        private void AddNewPackSizeRatioToDataGrid(string sizeCode, string sizeName)
-        {
-            DataGridView _dgv = this.dgvSizeRatios;
-            bool _validLine = app.Validate_SizeRatioRow_DoesNotContainDuplicateValue(sizeCode, this.dgvSizeRatios);
-
-            if (_validLine)
-            {
-                this.dgvSizeRatios.Rows.Add(sizeCode, sizeName, 0);
-            }
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            //New_Pack newPack = app.Return_NewPack_ToModel(this.tbPackId.Text,
-            //                                              this.tbPackName.Text,
-            //                                              this.dgvSizeRatios);
-
-            //bool _isValidPack = app.Validate_NewPack_IsUnique(newPack);
-
-            //if (_isValidPack)
-            //{
-
-            //}
-        }
-
         private void dgvSizeRatios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -162,6 +89,95 @@
 
             tbQtyInPack.Text = totalQtyOfPacks.ToString();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            New_Pack newPack = app.Return_NewPack_ToModel(this.tbPackId.Text,
+                                                          this.tbPackName.Text,
+                                                          this.dgvSizeRatios);
+
+            bool _isValidPack = app.Validate_NewPack_IsUnique(newPack);
+
+            if (_isValidPack)
+            {
+                app.Insert_NewPack_ToDB(newPack);
+                Run();
+            }
+        }
+
+        private void Run()
+        {
+            RefreshForm();
+
+            DataTable sizeRangesDT = app.Return_AllSizeRanges_ToDataTable();
+
+            Bind_Data_ToDGV(this.dgvSizeRanges, sizeRangesDT);
+
+            AddButtonToDataGridView(this.dgvSizesBySizeRange, "Add");
+            AddButtonToDataGridView(this.dgvSizeRatios, "Delete");
+        }
+
+        private void RefreshForm()
+        {
+            this.tbPackId.Text = app.Return_NextPackID_ToString();
+            this.tbPackName.Text = string.Empty;
+            this.tbQtyInPack.Text = "0";
+
+            foreach (var _row in dgvSizeRatios.Rows)
+            {
+                this.dgvSizeRanges.Rows.RemoveAt(0);
+            }
+            
+        }
+
+        private void PopulateSizesBySizeRangeTable(int rowIndex)
+        {
+            string sizeRangeID = this.dgvSizeRanges.Rows[rowIndex].Cells[0].Value.ToString();
+
+            DataTable sizesBySizeRangeDT = app.Return_SizesBySizeRange_ToDataTable(sizeRangeID);
+
+            Bind_Data_ToDGV(this.dgvSizesBySizeRange, sizesBySizeRangeDT);
+        }
+
+        
+
+        private void Bind_Data_ToDGV(DataGridView dataGridView, DataTable dataTable)
+        {
+            dataGridView.DataSource = dataTable;
+            dataGridView.AutoResizeColumns();
+            dataGridView.Refresh();
+        }
+
+        public void AddButtonToDataGridView(DataGridView dgv, string btnText)
+        {
+            
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            btnColumn.Name = btnText + "SizeCol";
+            btnColumn.HeaderText = btnText + " Size";
+            btnColumn.Width = 100;
+            btnColumn.ReadOnly = false;
+            btnColumn.FillWeight = 10;
+            btnColumn.Text = btnText;
+            btnColumn.UseColumnTextForButtonValue = true;
+
+            if (!dgv.Columns.Contains(btnColumn.Name))
+                dgv.Columns.Add(btnColumn);
+
+            dgv.AutoResizeColumns();
+            dgv.Refresh();
+        }
+
+        private void AddNewPackSizeRatioToDataGrid(string sizeCode, string sizeName)
+        {
+            DataGridView _dgv = this.dgvSizeRatios;
+            bool _validLine = app.Validate_SizeRatioRow_DoesNotContainDuplicateValue(sizeCode, this.dgvSizeRatios);
+
+            if (_validLine)
+            {
+                this.dgvSizeRatios.Rows.Add(sizeCode, sizeName, 0);
+            }
+        }
+
     }
 }
 

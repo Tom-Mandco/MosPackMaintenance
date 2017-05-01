@@ -5,19 +5,20 @@
     using Service.MosPackMaintenance.Interfaces;
     using System.Collections.Generic;
     using System.Data;
-    using System;
 
     public class DataHandler : IDataHandler
     {
         private readonly ILog logger;
-        private readonly IPerformLookup performLookup;
         private readonly IAdaptData dataAdapter;
+        private readonly IPerformInsert performInsert;
+        private readonly IPerformLookup performLookup;
 
-        public DataHandler(ILog logger, IPerformLookup performLookup, IAdaptData dataAdapter)
+        public DataHandler(ILog logger, IAdaptData dataAdapter, IPerformInsert performInsert, IPerformLookup performLookup)
         {
             this.logger = logger;
-            this.performLookup = performLookup;
             this.dataAdapter = dataAdapter;
+            this.performInsert = performInsert;
+            this.performLookup = performLookup;
         }
 
         public IEnumerable<Cleansed_Pack_Data> Return_CleansedPackData_ToModel(IEnumerable<Raw_Pack_Data> rawPackData)
@@ -113,6 +114,12 @@
         public string Return_NextPackID_ToString()
         {
             return performLookup.GetNextPackID();
+        }
+
+        public void Insert_NewPack_ToDB(New_Pack newPack)
+        {
+            performInsert.Insert_NewPackHeader_ToDB(newPack);
+            performInsert.Insert_NewPackDetail_ToDb(newPack);
         }
     }
 }

@@ -58,9 +58,11 @@
     <Compile Include="Models\Department_Details.cs" />
     <Compile Include="Models\Filter_Data.cs" />
     <Compile Include="Models\Filter_Parameters.cs" />
+    <Compile Include="Models\New_Pack.cs" />
     <Compile Include="Models\PackCode_Details.cs" />
     <Compile Include="Models\Raw_Pack_Data.cs" />
     <Compile Include="Models\Product_Details.cs" />
+    <Compile Include="Models\New_Pack_Sizes.cs" />
     <Compile Include="Models\Size_Details.cs" />
     <Compile Include="Models\Size_Ranges.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +92,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sql\Fetch_SizesBySizeRange.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\Insert_NewPack.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\Insert_NewPackHeader.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

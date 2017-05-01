@@ -12,14 +12,16 @@
     {
         private readonly ILog logger;
         private readonly IDataHandler dataHandler;
-        private readonly IDGVRowValidator rowValidator;
+        private readonly IValidationHandler validationHandler;
+        private readonly ISerializeObjects objectSerializer;
 
         #region Initialization
-        public App(ILog logger, IDataHandler dataHandler, IDGVRowValidator rowValidator)
+        public App(ILog logger, IDataHandler dataHandler, IValidationHandler rowValidator, ISerializeObjects objectSerializer)
         {
             this.logger = logger;
             this.dataHandler = dataHandler;
-            this.rowValidator = rowValidator;
+            this.validationHandler = rowValidator;
+            this.objectSerializer = objectSerializer;
         }
         #endregion
 
@@ -139,12 +141,27 @@
 
         public bool Validate_SizeRatioRow_DoesNotContainDuplicateValue(string sizeCode, DataGridView dgvSizeRatios)
         {
-            return rowValidator.Validate_SizeRatioRow_DoesNotContainDuplicateValue(sizeCode, dgvSizeRatios);
+            return validationHandler.Validate_SizeRatioRow_DoesNotContainDuplicateValue(sizeCode, dgvSizeRatios);
         }
 
         public string Return_NextPackID_ToString()
         {
             return dataHandler.Return_NextPackID_ToString();
+        }
+
+        public New_Pack Return_NewPack_ToModel(string packID, string packName, DataGridView dgvSizeRatios)
+        {
+            return objectSerializer.Serialize_PackData_ToNewPack(packID, packName, dgvSizeRatios);  
+        }
+
+        public bool Validate_NewPack_IsUnique(New_Pack newPack)
+        {
+            return validationHandler.Validate_NewPack_IsUnique(newPack);
+        }
+
+        public void Insert_NewPack_ToDB(New_Pack newPack)
+        {
+            dataHandler.Insert_NewPack_ToDB(newPack);
         }
     }
 }

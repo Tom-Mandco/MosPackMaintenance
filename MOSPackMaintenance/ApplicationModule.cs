@@ -34,11 +34,12 @@
             Bind(typeof(IApp)).To(typeof(App));
             Bind(typeof(IAdaptData)).To(typeof(DataAdapter));
             Bind(typeof(IDataHandler)).To(typeof(DataHandler));
+            Bind(typeof(IPerformInsert)).To(typeof(PerformInsert));
             Bind(typeof(IPerformLookup)).To(typeof(PerformLookup));
-            Bind(typeof(IDGVRowValidator)).To(typeof(ValidationHandler));
             Bind(typeof(IDataTableMapper)).To(typeof(DataTableMapper));
             Bind(typeof(IDataTableFactory)).To(typeof(DataTableFactory));
             Bind(typeof(ISerializeObjects)).To(typeof(ObjectSerializer));
+            Bind(typeof(IValidationHandler)).To(typeof(ValidationHandler));
             Bind(typeof(ISubmissionValidator)).To(typeof(SubmissionValidator));
             Bind(typeof(IRepository)).To(typeof(OracleRepository)).InSingletonScope().WithConstructorArgument("connectionString", connectionString);
         }

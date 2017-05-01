@@ -1,6 +1,6 @@
-﻿namespace MCO.Applications.MOSPackMaintenance.Models
+﻿namespace MCO.Data.MosPackMaintenance.Models
 {
-    public class Sizes_In_Pack
+    public class New_Pack_Sizes
     {
         public int Size_Code { get; set; }
         public int Qty { get; set; }
